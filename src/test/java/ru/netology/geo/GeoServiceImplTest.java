@@ -1,14 +1,9 @@
 package ru.netology.geo;
 
-import com.sun.org.glassfish.gmbal.ParameterNames;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ru.netology.entity.Country;
 import ru.netology.entity.Location;
-import ru.netology.i18n.LocalizationService;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class GeoServiceImplTest {
     GeoService geoService = new GeoServiceImpl();

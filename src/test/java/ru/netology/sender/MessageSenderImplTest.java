@@ -15,20 +15,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 class MessageSenderImplTest {
-    static GeoService geoService = Mockito.mock(GeoServiceImpl.class);
-    static LocalizationService localizationService = Mockito.mock(LocalizationServiceImpl.class);
-
-    @BeforeAll
-    static void mock() {
-        Mockito.when(geoService.byIp("172.123.12.19"))
-                .thenReturn(new Location("Moscow", Country.RUSSIA, "Lenina", 15));
-        Mockito.when(geoService.byIp("96.44.183.149"))
-                .thenReturn(new Location("New York", Country.USA, " 10th Avenue", 32));
-        Mockito.when(localizationService.locale(Country.RUSSIA))
-                .thenReturn("Добро пожаловать");
-        Mockito.when(localizationService.locale(Country.USA))
-                .thenReturn("Welcome");
-    }
+    static GeoService geoService = Mockito.spy(GeoServiceImpl.class);
+    static LocalizationService localizationService = Mockito.spy(LocalizationServiceImpl.class);
 
     @Test
     void sendRuTest() {

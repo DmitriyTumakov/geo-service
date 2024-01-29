@@ -7,15 +7,7 @@ import org.mockito.Mockito;
 import ru.netology.entity.Country;
 
 class LocalizationServiceImplTest {
-    static LocalizationService localizationService = Mockito.mock(LocalizationServiceImpl.class);
-
-    @BeforeAll
-    static void mock() {
-        Mockito.when(localizationService.locale(Country.RUSSIA))
-                .thenReturn("Добро пожаловать");
-        Mockito.when(localizationService.locale(Country.USA))
-                .thenReturn("Welcome");
-    }
+    static LocalizationService localizationService = Mockito.spy(LocalizationServiceImpl.class);
 
     @Test
     void localeRuTest() {
